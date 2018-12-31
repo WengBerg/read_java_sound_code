@@ -9,28 +9,28 @@ public class ReentrantLockTest {
 
         MyService service = new MyService();
 
-        for(int i = 0 ; i < 50 ;i++) {
+/*        for(int i = 0 ; i < 50 ;i++) {
             new MyThread(service).start();
-        }
-/*        MyThread a1 = new MyThread(service);
-        MyThread a2 = new MyThread(service);
-        MyThread a3 = new MyThread(service);
-        MyThread a4 = new MyThread(service);
-        MyThread a5 = new MyThread(service);
+        }*/
+        MyThread a1 = new MyThread(service,Thread.currentThread());
+        MyThread a2 = new MyThread(service,a1);
+        MyThread a3 = new MyThread(service,a2);
+        MyThread a4 = new MyThread(service,a3);
+        MyThread a5 = new MyThread(service,a4);
 
+        a4.start();
         a1.start();
         a2.start();
+        a5.start();
         a3.start();
-        a4.start();
-        a5.start();*/
 
     }
 
     static public class MyService {
 
-        private Lock lock = new ReentrantLock();
+        private Lock lock = new ReentrantLock(true);
 
-        public void testMethod() {
+        public void testMethod(Thread t) {
 
             try {
                 lock.lockInterruptibly();
@@ -38,10 +38,12 @@ public class ReentrantLockTest {
                 e.printStackTrace();
             }
             try {
-                if(Thread.currentThread().getName().equals("10"))
-                    Thread.interrupted();
                 for (int i = 0; i < 5; i++) {
                     System.out.println("ThreadName=" + Thread.currentThread().getName() + (" " + (i + 1)));
+                }
+                if(Thread.currentThread().getName().equals("Thread-3")) {
+                    t.interrupt();
+                    System.out.println("中断线程2");
                 }
             }  finally {
                 lock.unlock();
@@ -55,14 +57,16 @@ public class ReentrantLockTest {
 
         private MyService service;
 
-        public MyThread(MyService service) {
+        private Thread t;
+        public MyThread(MyService service,Thread t) {
             super();
             this.service = service;
+            this.t = t;
         }
 
         @Override
         public void run() {
-            service.testMethod();
+            service.testMethod(t);
         }
     }
 }
