@@ -1,3 +1,5 @@
+package multithread.synchronizedTest;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

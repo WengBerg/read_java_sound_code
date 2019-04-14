@@ -1,3 +1,5 @@
+package multithread.synchronizedTest;
+
 public class DeadLock implements Runnable {
     private Object obj1;
     private Object obj2;
@@ -37,5 +39,8 @@ public class DeadLock implements Runnable {
         Thread b = new Thread(deadLock, "B");
         a.start();
         b.start();
+/*        int a = 16;
+        int b =  (1 << a);
+        System.out.println(b);*/
     }
 }
