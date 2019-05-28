@@ -3,19 +3,19 @@ package multithread.join;
 public class TestJoin {
 
     public static void main(String[] args) {
-/*        //Ñ­»·Îå´Î
+/*        //å¾ªçŽ¯äº”æ¬¡
         for (int i = 0; i < 5; i++) {
 
             MyThread thread = new MyThread();
-            //Æô¶¯Ïß³Ì
+            //å¯åŠ¨çº¿ç¨‹
             thread.start();
 *//*            try {
-                //µ÷ÓÃjoin()·½·¨
+                //è°ƒç”¨join()æ–¹æ³•
                 thread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*//*
-            System.out.println("Ö÷Ïß³ÌÖ´ÐÐÍê±Ï");
+            System.out.println("ä¸»çº¿ç¨‹æ‰§è¡Œå®Œæ¯•");
             System.out.println("~~~~~~~~~~~~~~~");
 
         }*/

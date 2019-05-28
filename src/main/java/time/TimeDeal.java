@@ -6,30 +6,30 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 /**
- * java8 ÈÕÆÚ´¦ÀíÑ§Ï°
+ * java8 æ—¥æœŸå¤„ç†å­¦ä¹ 
  */
 public class TimeDeal {
 
     /**
-     * Ê±Çø×ª»»²âÊÔÀà
+     * æ—¶åŒºè½¬æ¢æµ‹è¯•ç±»
      */
     @Test
     public void test1() {
 
         /**
-         * Ê×ÏÈ¹Ì¶¨Ò»¸ö²»´øÈÎºÎÊ±ÇøµÄÊ±¼ä
-         * °ÑÕâ¸öÊ±¼ä¼ÓÉÏĞèÒªµÄÊ±Çø£¬¾Í±êÊ¶Õâ¸öÊ±¼ä¾ÍÊÇ¸ÃÊ±ÇøµÄ
-         * °Ñ´øÊ±ÇøµÄÊ±¼ä×ª»»³É Ä¿±ê Ê±Çø
+         * é¦–å…ˆå›ºå®šä¸€ä¸ªä¸å¸¦ä»»ä½•æ—¶åŒºçš„æ—¶é—´
+         * æŠŠè¿™ä¸ªæ—¶é—´åŠ ä¸Šéœ€è¦çš„æ—¶åŒºï¼Œå°±æ ‡è¯†è¿™ä¸ªæ—¶é—´å°±æ˜¯è¯¥æ—¶åŒºçš„
+         * æŠŠå¸¦æ—¶åŒºçš„æ—¶é—´è½¬æ¢æˆ ç›®æ ‡ æ—¶åŒº
          */
         String UTCTImeStr = "2018-06-20 12:22:34.8";
-        // ÉèÖÃ¸ñÊ½»¯ÀàĞÍ
+        // è®¾ç½®æ ¼å¼åŒ–ç±»å‹
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
         LocalDateTime dateTime = LocalDateTime.parse(UTCTImeStr, formatter);
-        //ÉèÖÃÊ±Çø
+        //è®¾ç½®æ—¶åŒº
         ZonedDateTime timeTest = ZonedDateTime.of(dateTime, ZoneId.of("UTC"));
-        // ÉèÖÃ×ª»»Ê±Çø
+        // è®¾ç½®è½¬æ¢æ—¶åŒº
         ZoneId zoneId = ZoneId.of("Asia/Tokyo");
-        //Ê±Çø×ª»»
+        //æ—¶åŒºè½¬æ¢
         ZonedDateTime zonedDateTime = timeTest.withZoneSameLocal(zoneId);
         String format = zonedDateTime.format(formatter);
         System.out.println(format);

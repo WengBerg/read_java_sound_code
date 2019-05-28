@@ -1,7 +1,7 @@
 package string;
 
 /**
- * ²âÊÔfinal string
+ * æµ‹è¯•final string
  *
  */
 public class TestFinalString {
@@ -14,14 +14,14 @@ public class TestFinalString {
 
         String s3 = "123" + f;
 
-        // ÕâÀïÎªfalseµÄÔ­ÒòÊÇÒòÎª testStr
-        // ´«µÄÖµÊÇ¿ÉÒÔĞŞ¸ÄµÄ£¬ÕâÀïµÄ f ²»±äµÄÒıÓÃÖ¸ÏòµÄÊÇÒ»¸ö·½·¨µÄÒıÓÃ£¬
-        // ¶ø²»ÊÇÄ³Ò»¸östringµÄ
+        // è¿™é‡Œä¸ºfalseçš„åŸå› æ˜¯å› ä¸º testStr
+        // ä¼ çš„å€¼æ˜¯å¯ä»¥ä¿®æ”¹çš„ï¼Œè¿™é‡Œçš„ f ä¸å˜çš„å¼•ç”¨æŒ‡å‘çš„æ˜¯ä¸€ä¸ªæ–¹æ³•çš„å¼•ç”¨ï¼Œ
+        // è€Œä¸æ˜¯æŸä¸€ä¸ªstringçš„
         System.out.println(s==s3);
 
         new StringBuffer("12");
 
-        // ´òÓ¡Êµ¼ÊµÄµØÖ·½øĞĞ²âÊÔ
+        // æ‰“å°å®é™…çš„åœ°å€è¿›è¡Œæµ‹è¯•
         System.out.println("*******************");
 
         final String str1 = "123";
