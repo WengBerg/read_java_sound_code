@@ -21,6 +21,17 @@ public class TestFinalString {
 
         new StringBuffer("12");
 
+        // 打印实际的地址进行测试
+        System.out.println("*******************");
+
+        final String str1 = "123";
+
+        String str2 = "12";
+
+        System.out.println(System.identityHashCode(str1));
+        System.out.println(System.identityHashCode((str2+"3").intern()));
+        System.gc();
+
     }
 
     public static String testStr(String s) {

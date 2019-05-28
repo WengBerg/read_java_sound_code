@@ -8,7 +8,9 @@ public class IntegerTest {
 
         Integer h =128;
         Integer k = 128;
+        final Integer l = 129;
         System.out.println(h == k);
+        System.out.println(l == 129);
         System.out.println(System.identityHashCode(h));
         System.out.println(System.identityHashCode(k));
         System.out.println(Integer.hashCode(128));
