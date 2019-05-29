@@ -30,7 +30,7 @@ public class TimeDeal {
         // 设置转换时区
         ZoneId zoneId = ZoneId.of("Asia/Tokyo");
         //时区转换
-        ZonedDateTime zonedDateTime = timeTest.withZoneSameLocal(zoneId);
+        ZonedDateTime zonedDateTime = timeTest.withZoneSameInstant(zoneId);
         String format = zonedDateTime.format(formatter);
         System.out.println(format);
     }
