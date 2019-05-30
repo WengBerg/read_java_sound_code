@@ -14,7 +14,6 @@ public class VolatileOtherDemo {
         try {
             Thread.sleep(1);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         count+=1;
@@ -22,14 +21,12 @@ public class VolatileOtherDemo {
 
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         VolatileOtherDemo demo=new VolatileOtherDemo();
         for (int i = 0; i < 1000; i++) {
             new Thread(new Runnable() {
 
                 @Override
                 public void run() {
-                    // TODO Auto-generated method stub
                     demo.setCount();
                 }
             }).start();
