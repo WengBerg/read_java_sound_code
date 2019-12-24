@@ -16,14 +16,16 @@ public class ReentrantReadWriteLockTest {
     public static void main(String[] args) {
         final ReadWrite rw = new ReadWrite();
         for (int i = 0; i < 3; i++) {
-            new Thread() {
+            Thread readThread = new Thread() {
                 public void run() {
                     while (true) {
                         rw.read();
                     }
                 }
 
-            }.start();
+            };
+            readThread.setName("read"+i);
+            readThread.start();
 
             Thread writeThread = new Thread() {
                 public void run() {
@@ -48,7 +50,7 @@ public class ReentrantReadWriteLockTest {
  */
 class ReadWrite {
     private Object data = null;//共享数据，只能有一个线程写该数据，但可以有多个线程同时读该数据。
-    ReadWriteLock rwl = new ReentrantReadWriteLock();
+    ReadWriteLock rwl = new ReentrantReadWriteLock(true);
 
     /**
      * 读数据
